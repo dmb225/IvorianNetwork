@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Ivnetwork</string>
+
+
+    <string name="loginZone_title">Connexion</string>
+    <string name="login_title">Identifiant</string>
+    <string name="password_title">Mot de passe</string>
+    <string name="cAccount_title">Nouvel utilisateur</string>
+    <string name="connectwith">Se connecter avec :</string>
+    <string name="ok">OK</string>
+</resources>

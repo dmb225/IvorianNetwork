@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ivnetwork.app.ivnetwork.LoginActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/applogo"
+                android:layout_centerInParent="true"
+                android:layout_alignParentTop="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/images"/>
+
+
+            <RelativeLayout
+                android:id="@+id/loginZone"
+                android:layout_below="@id/applogo"
+                android:layout_marginTop="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/loginZoneTitle"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/loginZone_title"/>
+
+                <LinearLayout
+                    android:id="@+id/loginSpace"
+                    android:layout_below="@id/loginZoneTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100sp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/login_title"/>
+
+                    <EditText
+                        android:layout_marginStart="3sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/passwordSpace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/loginSpace"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100sp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/password_title"/>
+
+                    <EditText
+                        android:layout_marginStart="7sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/passwordSpace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ok"/>
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/newAccount"
+                android:layout_centerInParent="true"
+                android:layout_below="@id/loginZone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cAccount_title"/>
+
+
+            <RelativeLayout
+                android:id="@+id/signupWith"
+                android:layout_marginTop="3sp"
+                android:layout_below="@id/newAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/newaccounttext"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/connectwith"/>
+
+
+                <ImageButton
+                    android:id="@+id/signupwithgoogle"
+                    android:layout_below="@id/newaccounttext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/googlelogo"
+                    android:background="#FFFFFF"/>
+
+                <ImageButton
+                    android:id="@+id/signupwithfb"
+                    android:layout_below="@id/newaccounttext"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/fblogo"
+                    android:background="#FFFFFF"/>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
