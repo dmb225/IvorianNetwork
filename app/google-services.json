@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "973044759551",
+    "firebase_url": "https://ivnetwork-1512347783138.firebaseio.com",
+    "project_id": "ivnetwork-1512347783138",
+    "storage_bucket": "ivnetwork-1512347783138.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973044759551:android:09f3d7512c141759",
+        "android_client_info": {
+          "package_name": "ivnetwork.app.ivnetwork"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "973044759551-oo3j1ssft2aq34vv1ue9ejp84870u82q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ivnetwork.app.ivnetwork",
+            "certificate_hash": "b94d4507d9bedb6ac64b6dfcb9eba20d19fc1e91"
+          }
+        },
+        {
+          "client_id": "973044759551-m7433atuv9qkijick33o6076vblpe14j.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "973044759551-0r0e3168fcbs34rqpf5n3f4so17bad19.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAo7uZB9sWhXbFs2etD_hl590pcJy-A-fo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "973044759551-m7433atuv9qkijick33o6076vblpe14j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

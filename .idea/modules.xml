@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Ivnetwork.iml" filepath="$PROJECT_DIR$/Ivnetwork.iml" />
       <module fileurl="file://$PROJECT_DIR$/IvorianNetwork.iml" filepath="$PROJECT_DIR$/IvorianNetwork.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
