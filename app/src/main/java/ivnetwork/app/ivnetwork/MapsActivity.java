@@ -5,8 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -18,31 +18,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private TextView mTextMessage;
+    protected BottomNavigationView navigationView;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    Intent intentHome = new Intent(MapsActivity.this, HomeActivity.class);
-                    startActivity(intentHome);
-                    return true;
-                case R.id.navigation_map:
-                    return true;
-                case R.id.navigation_chat:
-                    Intent intentMap = new Intent(MapsActivity.this, ChatActivity.class);
-                    startActivity(intentMap);
-                    return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
-                    return true;
-            }
-            return false;
-        }
-    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,14 +29,59 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        navigationView.setOnNavigationItemSelectedListener(this::onNavigationItemSelected);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        updateNavigationBarState();
+    }
+
+    // Remove inter-activity transition to avoid screen tossing on tapping bottom navigation items
+    @Override
+    public void onPause() {
+        super.onPause();
+        overridePendingTransition(0, 0);
+    }
+
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        navigationView.postDelayed(() -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.navigation_home) {
+                startActivity(new Intent(this, HomeActivity.class));
+            } else if (itemId == R.id.navigation_chat) {
+                startActivity(new Intent(this, ChatActivity.class));
+            } else if (itemId == R.id.navigation_map) {
+
+            } else if (itemId == R.id.navigation_settings) {
+                startActivity(new Intent(this, SettingsActivity.class));
+            }
+            finish();
+        }, 300);
+        return true;
+    }
+
+    private void updateNavigationBarState(){
+        int actionId = R.id.navigation_map;
+        selectBottomNavigationBarItem(actionId);
+    }
+
+    void selectBottomNavigationBarItem(int itemId) {
+        Menu menu = navigationView.getMenu();
+        for (int i = 0, size = menu.size(); i < size; i++) {
+            MenuItem item = menu.getItem(i);
+            boolean shouldBeChecked = item.getItemId() == itemId;
+            if (shouldBeChecked) {
+                item.setChecked(true);
+                break;
+            }
+        }
+    }
 
     /**
      * Manipulates the map once available.
